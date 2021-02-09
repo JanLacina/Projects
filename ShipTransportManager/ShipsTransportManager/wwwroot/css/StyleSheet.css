@@ -1,0 +1,74 @@
+﻿body {
+    padding: 0% 20%;
+    margin: 0;
+    font-family:Consolas;
+    background-image:url(../images/background.jpg);
+    background:no-repeat,
+}
+.realBody {
+    background-color: rgba(256,256,256, 0.8);
+    padding: 2% 3% 15% 3%;
+}
+
+.ShipList table {
+    width: 100%;
+    border-collapse: separate;
+    border: solid black 1px;
+    border-radius: 4px;
+    -moz-border-radius: 6px;
+}
+.ShipList thead {
+    padding: 1% 1% 1% 2%;
+    background-color: #4CAF50;
+    color: white;
+}
+.ShipList thead tr{
+    font-weight: 800;
+}
+
+.ShipList tr {
+    font-weight: 400;
+    font-size: 20px;
+}
+    .ShipList tr:hover {
+        background-color: #ddd;
+    }
+
+.ShipList tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.ShipList td {
+    text-align: center;
+}
+
+    .ShipList td:first-child, th:first-child {
+        border-left: none;
+    }
+
+/*Buttons*/
+input[type=text], input[type=number] {
+    width: 100%;
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 8px 0;
+    padding: 1% 1% 1% 1%;
+    border-radius: 4px;
+    font-family:Consolas;
+    font-weight:500;
+}
+
+input[type=submit] {
+    width: 100%;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    padding: 1% 1% 1% 2%;
+    color: white;
+    font:bold 16px Consolas;
+}
+
+
+select {
+    padding: 0.5% 1%;
+    font: 500 14px Consolas;    
+}

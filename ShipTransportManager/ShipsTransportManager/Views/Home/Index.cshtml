@@ -1,0 +1,104 @@
+﻿@using ShipsTransportManager.DTO;
+@model IndexViewDTO
+
+    <head>
+        <link rel="stylesheet" href="~/css/StyleSheet.css" />
+    </head>
+
+    <div class="realBody">
+
+        <h1>Spaceship Transport manager</h1>
+
+        <div class="ShipList">
+
+            <table>
+                <thead>
+                    <tr>
+                        <td>#</td>
+                        <td>Ship name</td>
+                        <td>Maximum warp speed</td>
+                        <td>Current location(remaining capacity)</td>
+                        <td>Docking action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var ship in Model.Ships)
+                    {
+                        <tr>
+                            <td>@ship.Id</td>
+                            <td>@ship.Name</td>
+                            <td>@ship.WarpSpeed</td>
+                            <td>@ship.Planet.Name (@(ship.Planet.ShipCapacity-ship.Planet.ActuallyDocked))</td>
+                            @if (ship.IsDocked)
+                            {
+                                <td><a href="/undock/@ship.Id">UNDOCK</a></td>
+                            }
+                            else
+                            {
+                                <td><a href="/dock/@ship.Id">DOCK</a></td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <h2>Send ship</h2>
+            <p>
+                Ships can only be sent if they are undocked. If you aren' seeing your ship below,
+                make sure to undock it above.
+            </p>
+        </div>
+
+        <div class="SendShip">
+            <form action="/move/" method="post">
+                <label>
+                    Which ship should be sent...
+                    <select name="id">
+                        @foreach (var ship in Model.Ships.Where(ship => ship.IsDocked == false))
+                        {
+                            <option value="@ship.Id">@ship.Name</option>
+                        }
+                    </select>
+
+                </label>
+                <label>
+                    ... to which planet
+                    <select name="planetId">
+                        @foreach (var planet in Model.Planets.Where(planet => planet.ShipCapacity > planet.ActuallyDocked))
+                        {
+                            <option value="@planet.Id">@planet.Name</option>
+                        }
+                    </select>
+                </label> <br /> <br />
+
+                <input type="submit" value="Send the ship" />
+            </form>
+        </div>
+
+        <div class="CreateShip">
+            <h2>Create new Ship</h2>
+
+            <form action="/create/" method="post">
+                <label>
+                    Ship name <br />
+                    <input type="text" name="name" placeholder="Name of the ship" />
+                </label><br />
+
+                <label>
+                    Warp speed <br />
+                    <input type="number" min="1" max="10" step="0.5" name="warpSpeed" placeholder="How fast the ship will be?" />
+                </label><br />
+
+                <label>
+                    Starting planet<br />
+                    <select name="planetId">
+                        @foreach (var planet in Model.Planets.Where(planet => planet.ShipCapacity > planet.ActuallyDocked))
+                        {
+                            <option value="@planet.Id">@planet.Name</option>
+                        }
+                    </select>
+                </label> <br /><br />
+
+                <input type="submit" value="Create brand new ship :) " />
+            </form>
+        </div>
+    </div>
