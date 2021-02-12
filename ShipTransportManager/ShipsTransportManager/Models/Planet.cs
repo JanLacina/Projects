@@ -15,6 +15,7 @@ namespace ShipsTransportManager.Models
         [Required]
         public int ShipCapacity { get; set; }
         public int ActuallyDocked { get; set; }
+        public int Landing { get; set; }
 
         public List<Ship> ListOfShips { get; set; }
 

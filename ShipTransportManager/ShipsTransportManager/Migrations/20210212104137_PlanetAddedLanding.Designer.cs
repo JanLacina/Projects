@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShipsTransportManager.Context;
 
 namespace ShipsTransportManager.Migrations
 {
     [DbContext(typeof(STMContext))]
-    partial class STMContextModelSnapshot : ModelSnapshot
+    [Migration("20210212104137_PlanetAddedLanding")]
+    partial class PlanetAddedLanding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

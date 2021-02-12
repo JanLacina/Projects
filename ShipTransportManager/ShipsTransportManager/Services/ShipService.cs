@@ -39,10 +39,10 @@ namespace ShipsTransportManager.Services
         public Ship CreateShip(string name, double warpSpeed, int planetId)
         {
             Planet planet = db.Planets.FirstOrDefault(p => p.Id == planetId);
-            if (planet.ShipCapacity > planet.ActuallyDocked)
+            if (planet.ShipCapacity > planet.Landing)
             {
                 var result = db.Ships.Add(new Ship(name, warpSpeed, planet)).Entity;
-                planet.ActuallyDocked += 1;
+                planet.Landing += 1;
                 db.SaveChanges();
 
                 return result;
@@ -57,7 +57,7 @@ namespace ShipsTransportManager.Services
             Planet oldPlanet = toMove.Planet;
             Planet newPlanet = db.Planets.FirstOrDefault(p => p.Id == planetId);
 
-            if (newPlanet.ShipCapacity > newPlanet.ActuallyDocked) { 
+            if (newPlanet.ShipCapacity > newPlanet.Landing) { 
                 if (toMove.IsDocked == false)
                 {
                     //Ship update
@@ -65,8 +65,8 @@ namespace ShipsTransportManager.Services
                     db.Update(toMove);
 
                     //Planet update
-                    newPlanet.ActuallyDocked += 1;
-                    oldPlanet.ActuallyDocked -= 1;
+                    newPlanet.Landing += 1;
+                    oldPlanet.Landing -= 1;
 
                     db.Update(oldPlanet);
                     db.Update(newPlanet);
@@ -75,31 +75,6 @@ namespace ShipsTransportManager.Services
                 }
             }
         }
-        //Only difference is IsDocked is no longer important
-        public void DeletePlanetMove(int id, int planetId)
-        {
-            Ship toMove = GetById(id);
-
-            Planet oldPlanet = toMove.Planet;
-            Planet newPlanet = db.Planets.FirstOrDefault(p => p.Id == planetId);
-
-            if (newPlanet.ShipCapacity > newPlanet.ActuallyDocked)
-            {
-                //Ship update
-                toMove.Planet = newPlanet;
-                db.Update(toMove);
-                
-                //Planet update
-                newPlanet.ActuallyDocked += 1;
-                oldPlanet.ActuallyDocked -= 1;
-                
-                db.Update(oldPlanet);
-                db.Update(newPlanet);
-                
-                db.SaveChanges();
-            }
-        }
-
 
         public List<Ship> GetWarpAbove(double wantedWarp)
         {
@@ -127,11 +102,14 @@ namespace ShipsTransportManager.Services
             db.Update(ToUnDock);
             db.SaveChanges();
         }
-
-        public void DeleteShip (int id)
+        public void DeleteShipById (int id)
         {
-            db.Remove(id);
-            db.SaveChanges();
+            db.Remove(GetById(id));
+        }
+
+        public void DeleteShip (Ship toDelete)
+        {
+            db.Remove(toDelete);
         }
     }
 }

@@ -1,9 +1,7 @@
 ﻿using ShipsTransportManager.Context;
 using ShipsTransportManager.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace ShipsTransportManager.Services
 {
@@ -31,11 +29,11 @@ namespace ShipsTransportManager.Services
         {
             Dictionary<Planet, int> Available = new Dictionary<Planet, int>();
 
-            List<Planet> Planets = db.Planets.Where(p => p.ShipCapacity-p.ActuallyDocked > 0).ToList();
+            List<Planet> Planets = db.Planets.Where(p => p.ShipCapacity-p.Landing > 0).ToList();
 
             foreach (var Planet in Planets)
             {
-                Available.Add(Planet, Planet.ShipCapacity-Planet.ActuallyDocked);
+                Available.Add(Planet, Planet.ShipCapacity-Planet.Landing);
             }
 
             return Available;
@@ -43,7 +41,7 @@ namespace ShipsTransportManager.Services
 
         public int FirstAvailable()
         {  
-            return db.Planets.Where(p => p.ShipCapacity - p.ActuallyDocked > 0).First().Id;
+            return db.Planets.Where(p => p.ShipCapacity - p.Landing > 0).First().Id;
         }
 
         public Planet GetById(int id)
@@ -53,8 +51,19 @@ namespace ShipsTransportManager.Services
 
         public void RemoveById(int id)
         {
+            Planet planet = GetById(id);
+            db.Remove(planet);
+            db.SaveChanges();
+        }
 
-            db.Remove(GetById(id));
+        public void ShipDock(int shipId)
+        {
+            db.Ships.Where(s => s.Id == shipId).FirstOrDefault().Planet.ActuallyDocked++;
+            db.SaveChanges();
+        }
+        public void ShipUndock(int shipId)
+        {
+            db.Ships.Where(s => s.Id == shipId).FirstOrDefault().Planet.ActuallyDocked--;
             db.SaveChanges();
         }
 
@@ -68,6 +77,17 @@ namespace ShipsTransportManager.Services
             }
 
             return availableSpaces > ShipsOnPlanet.Count();
+        }
+        public int CountOfFreeSpaces(List<Ship> ShipsOnPlanet, Dictionary<Planet, int> AvailablePlanets)
+        {
+            int availableSpaces = 0;
+
+            foreach (var item in AvailablePlanets)
+            {
+                availableSpaces += item.Value;
+            }
+
+            return availableSpaces;
         }
     }
 }

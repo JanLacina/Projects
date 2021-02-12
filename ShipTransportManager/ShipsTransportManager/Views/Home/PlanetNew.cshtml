@@ -1,0 +1,31 @@
+﻿@using ShipsTransportManager.DTO;
+@model IndexViewDTO
+
+    <head>
+        <link rel="stylesheet" href="~/css/StyleSheet.css" />
+    </head>
+
+    <div class="realBody">
+
+        <h1 class="h1God">God page a.k.a. planet creation</h1>
+        
+        <div class="ImgGod">
+            <img src="~/images/God.png" />
+        </div>
+
+        <div class="CreateNew">
+            <form action="/planet/new/" method="post">
+                <label>
+                    Planet name <br />
+                    <input type="text" name="name" placeholder="How I name the planet?" />
+                </label><br />
+
+                <label>
+                    Ship capacity <br />
+                    <input type="number" min="1" max="5" step="1" name="shipCapacity" placeholder="How many ships can be on the planet?" />
+                </label><br />
+
+                <input type="submit" value="Let there be planet!" />
+            </form>
+        </div>
+    </div>

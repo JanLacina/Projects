@@ -2,11 +2,8 @@
 using ShipsTransportManager.DTO;
 using ShipsTransportManager.Models;
 using ShipsTransportManager.Services;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 
 
 namespace ShipsTransportManager.Controllers
@@ -57,6 +54,7 @@ namespace ShipsTransportManager.Controllers
         public IActionResult Dock(int id)
         {
             ShipService.DockByID(id);
+            PlanetService.ShipDock(id);
 
             return RedirectToAction("Mainpage");
         }
@@ -65,6 +63,7 @@ namespace ShipsTransportManager.Controllers
         public IActionResult UnDock(int id)
         {
             ShipService.UndockById(id);
+            PlanetService.ShipUndock(id);
 
             return RedirectToAction("Mainpage");
         }
@@ -81,33 +80,46 @@ namespace ShipsTransportManager.Controllers
         }
 
         //Otestovat
-        [HttpDelete("/planet/{id}")]
+        [HttpGet("/planet/delete/{id}")]
         public IActionResult DeletePlanet(int id)
         {
             List<Ship> GetAllOnPlanet = ShipService.GetAllOnPlanet(id);
             int moveToPlanet = PlanetService.FirstAvailable();
+            int freeSpaces = PlanetService.CountOfFreeSpaces(GetAllOnPlanet, PlanetService.GetAvailable());
 
-            if (PlanetService.IsEnoughOfFreeSpaces(GetAllOnPlanet, PlanetService.GetAvailable()))
+            foreach (var Ship in GetAllOnPlanet.ToList()) //Great trick to remove objects from iterated list
             {
-                foreach (var Ship in GetAllOnPlanet)
-                {
-                    ShipService.DeletePlanetMove(Ship.Id, moveToPlanet);
+                if(freeSpaces > 0) 
+                { 
+                    if(Ship.IsDocked == true) 
+                    {
+                        ShipService.UndockById(Ship.Id);
+                    }
+                    ShipService.Move(Ship.Id, moveToPlanet);
                     GetAllOnPlanet.Remove(Ship);
+                    freeSpaces--;
                 }
             }
-            else //Unfortunately, if there is no free space on any planet, then ship is destroyed with the planet ↓
+            PlanetService.RemoveById(id);
+
+            //Unfortunately, if there is no free space on any planet, then ship is destroyed with the planet ↓            
+            foreach (var Ship in GetAllOnPlanet)
             {
-                foreach (var Ship in GetAllOnPlanet)
-                {
-                    ShipService.DeleteShip(Ship.Id);
-                }
+                ShipService.DeleteShip(Ship);
+                PlanetService.RemoveById(id);
             }
 
             return RedirectToAction("Mainpage");
         }
 
         //Ultimate God thing :)
-        [HttpGet("/planet/new")]
+        [HttpGet("planet/new")]
+        public IActionResult CreatePlanet()
+        {
+            return View("PlanetNew");
+        }
+
+        [HttpPost("/planet/new")]
         public IActionResult CreatePlanet(string name, int shipCapacity)
         {
             PlanetService.CreatePlanet(name, shipCapacity);

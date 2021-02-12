@@ -28,7 +28,7 @@
                             <td>@ship.Id</td>
                             <td>@ship.Name</td>
                             <td>@ship.WarpSpeed</td>
-                            <td>@ship.Planet.Name (@(ship.Planet.ShipCapacity-ship.Planet.ActuallyDocked))</td>
+                            <td>@ship.Planet.Name (@(ship.Planet.ShipCapacity-ship.Planet.Landing))</td>
                             @if (ship.IsDocked)
                             {
                                 <td><a href="/undock/@ship.Id">UNDOCK</a></td>
@@ -63,7 +63,7 @@
                 <label>
                     ... to which planet
                     <select name="planetId">
-                        @foreach (var planet in Model.Planets.Where(planet => planet.ShipCapacity > planet.ActuallyDocked))
+                        @foreach (var planet in Model.Planets.Where(planet => planet.ShipCapacity > planet.Landing))
                         {
                             <option value="@planet.Id">@planet.Name</option>
                         }
@@ -74,7 +74,7 @@
             </form>
         </div>
 
-        <div class="CreateShip">
+        <div class="CreateNew">
             <h2>Create new Ship</h2>
 
             <form action="/create/" method="post">

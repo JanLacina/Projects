@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1JSbPq3HcPFme/y/qhnaKQwNg4AZhyj47uY/TQLEp69wITejWyV95t4S/n36AJql3DvEZRAB77zyLd6xs+U0ZQ==",
+  "dgSpecHash": "PM3/zgfHfSbfJkej7QexglIhTazscBk3gkfFdoSywwCf2XmiIYN3D4o5zNtj9hlWeisoggWRPj625/0IZRuhTw==",
   "success": true,
-  "projectFilePath": "C:\\Programming Stuff\\GreenFox-NOT GIT\\Greenfox-GIT\\C#\\OrieExamAttempt\\OrieExamCSharp\\ShipsTransportManager\\ShipsTransportManager.csproj",
+  "projectFilePath": "C:\\Programming Stuff\\GreenFox-NOT GIT\\Projects\\ShipTransportManager\\ShipsTransportManager\\ShipsTransportManager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sprav\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\sprav\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

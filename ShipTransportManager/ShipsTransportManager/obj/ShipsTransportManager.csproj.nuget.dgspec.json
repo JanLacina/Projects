@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Programming Stuff\\GreenFox-NOT GIT\\Greenfox-GIT\\C#\\OrieExamAttempt\\OrieExamCSharp\\ShipsTransportManager\\ShipsTransportManager.csproj": {}
+    "C:\\Programming Stuff\\GreenFox-NOT GIT\\Projects\\ShipTransportManager\\ShipsTransportManager\\ShipsTransportManager.csproj": {}
   },
   "projects": {
-    "C:\\Programming Stuff\\GreenFox-NOT GIT\\Greenfox-GIT\\C#\\OrieExamAttempt\\OrieExamCSharp\\ShipsTransportManager\\ShipsTransportManager.csproj": {
+    "C:\\Programming Stuff\\GreenFox-NOT GIT\\Projects\\ShipTransportManager\\ShipsTransportManager\\ShipsTransportManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Programming Stuff\\GreenFox-NOT GIT\\Greenfox-GIT\\C#\\OrieExamAttempt\\OrieExamCSharp\\ShipsTransportManager\\ShipsTransportManager.csproj",
+        "projectUniqueName": "C:\\Programming Stuff\\GreenFox-NOT GIT\\Projects\\ShipTransportManager\\ShipsTransportManager\\ShipsTransportManager.csproj",
         "projectName": "ShipsTransportManager",
-        "projectPath": "C:\\Programming Stuff\\GreenFox-NOT GIT\\Greenfox-GIT\\C#\\OrieExamAttempt\\OrieExamCSharp\\ShipsTransportManager\\ShipsTransportManager.csproj",
+        "projectPath": "C:\\Programming Stuff\\GreenFox-NOT GIT\\Projects\\ShipTransportManager\\ShipsTransportManager\\ShipsTransportManager.csproj",
         "packagesPath": "C:\\Users\\sprav\\.nuget\\packages\\",
-        "outputPath": "C:\\Programming Stuff\\GreenFox-NOT GIT\\Greenfox-GIT\\C#\\OrieExamAttempt\\OrieExamCSharp\\ShipsTransportManager\\obj\\",
+        "outputPath": "C:\\Programming Stuff\\GreenFox-NOT GIT\\Projects\\ShipTransportManager\\ShipsTransportManager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sprav\\AppData\\Roaming\\NuGet\\NuGet.Config",

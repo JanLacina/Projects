@@ -72,3 +72,16 @@ select {
     padding: 0.5% 1%;
     font: 500 14px Consolas;    
 }
+
+.h1God {
+    text-align: center;
+}
+
+/*Images*/
+.ImgGod img {
+    border-radius: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
