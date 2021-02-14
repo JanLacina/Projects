@@ -17,7 +17,7 @@
                         <td>#</td>
                         <td>Ship name</td>
                         <td>Maximum warp speed</td>
-                        <td>Current location(remaining capacity)</td>
+                        <td>Current location(remaining landing capacity)</td>
                         <td>Docking action</td>
                     </tr>
                 </thead>
@@ -91,7 +91,7 @@
                 <label>
                     Starting planet<br />
                     <select name="planetId">
-                        @foreach (var planet in Model.Planets.Where(planet => planet.ShipCapacity > planet.ActuallyDocked))
+                        @foreach (var planet in Model.Planets.Where(planet => planet.ShipCapacity > planet.Landing))
                         {
                             <option value="@planet.Id">@planet.Name</option>
                         }

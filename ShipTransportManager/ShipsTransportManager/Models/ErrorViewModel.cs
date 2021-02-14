@@ -1,5 +1,3 @@
-using System;
-
 namespace ShipsTransportManager.Models
 {
     public class ErrorViewModel

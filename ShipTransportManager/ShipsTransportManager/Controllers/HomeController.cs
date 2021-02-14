@@ -34,6 +34,7 @@ namespace ShipsTransportManager.Controllers
             return View("Index", Model);
         }
 
+        //Ship ↓
         [HttpPost("/create/")]
         public IActionResult Create(string name, int warpSpeed, int planetId)
         {
@@ -67,19 +68,9 @@ namespace ShipsTransportManager.Controllers
 
             return RedirectToAction("Mainpage");
         }
+        //Ship ↑
 
-        /*
-        Get ships with specific rules (all docked their, ...)
-        */
-        [HttpGet("test")]
-        public IActionResult Tesst()
-        {
-
-            
-            return RedirectToAction("Mainpage");
-        }
-
-        //Otestovat
+        //Planet ↓
         [HttpGet("/planet/delete/{id}")]
         public IActionResult DeletePlanet(int id)
         {
@@ -125,5 +116,6 @@ namespace ShipsTransportManager.Controllers
             PlanetService.CreatePlanet(name, shipCapacity);
             return RedirectToAction("Mainpage");
         }
+        //Planet ↑
     }
 }

@@ -406,7 +406,6 @@ C:\Programming Stuff\GreenFox-NOT GIT\Projects\ShipTransportManager\ShipsTranspo
 C:\Programming Stuff\GreenFox-NOT GIT\Projects\ShipTransportManager\ShipsTransportManager\obj\Debug\net5.0\ShipsTransportManager.TagHelpers.output.cache
 C:\Programming Stuff\GreenFox-NOT GIT\Projects\ShipTransportManager\ShipsTransportManager\obj\Debug\net5.0\ShipsTransportManager.RazorCoreGenerate.cache
 C:\Programming Stuff\GreenFox-NOT GIT\Projects\ShipTransportManager\ShipsTransportManager\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-C:\Programming Stuff\GreenFox-NOT GIT\Projects\ShipTransportManager\ShipsTransportManager\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Programming Stuff\GreenFox-NOT GIT\Projects\ShipTransportManager\ShipsTransportManager\obj\Debug\net5.0\ShipsTransportManager.RazorTargetAssemblyInfo.cache
 C:\Programming Stuff\GreenFox-NOT GIT\Projects\ShipTransportManager\ShipsTransportManager\obj\Debug\net5.0\ShipsTransportManager.RazorTargetAssemblyInfo.cs
 C:\Programming Stuff\GreenFox-NOT GIT\Projects\ShipTransportManager\ShipsTransportManager\obj\Debug\net5.0\ShipsTransportManager.Views.pdb
