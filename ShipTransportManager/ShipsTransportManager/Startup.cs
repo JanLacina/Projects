@@ -29,7 +29,6 @@ namespace ShipsTransportManager
         {
             services.AddControllersWithViews();
 
-            //PRIDAT SERVICY + 
             services.AddTransient<PlanetService>();
             services.AddTransient<ShipService>();
             services.AddDbContext<STMContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
