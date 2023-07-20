@@ -23,8 +23,8 @@ Thumbs.db
 *.lib
 *.sbr
 /CRUD-DB/.vs
-/CRUD-DB/CRUD-DB/bin/
-/CRUD-DB/CRUD-DB/obj/
+/CRUD-DB/CRUD-DB/bin
+/CRUD-DB/CRUD-DB/obj
 #Visual Studio directory
 .vs/
 #Nuget packages folder
