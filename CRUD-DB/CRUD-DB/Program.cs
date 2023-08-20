@@ -1,6 +1,7 @@
 using CRUD_DB.Data;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
+using CRUD_DB.Database;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
+
+// Dependency injection style
+builder.Services.AddDbContextFactory<Context>(options => 
+    {
+        options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
+    }); 
 
 var app = builder.Build();
 

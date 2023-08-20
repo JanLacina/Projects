@@ -1,0 +1,49 @@
+#Ignore thumbnails created by Windows
+Thumbs.db
+#Ignore files built by Visual Studio
+*.obj
+*.exe
+*.pdb
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+[Bb]in
+[Dd]ebug*/
+*.lib
+*.sbr
+/CRUD-DB/.vs
+/CRUD-DB/CRUD-DB/bin
+/CRUD-DB/CRUD-DB/obj
+#Visual Studio directory
+.vs/
+#Nuget packages folder
+packages/
+#Static files
+#Local connection string
+~$*.doc*
+Backup of *.doc*
+~$*.xls*
+*.xlk
+~$*.ppt*
+*.~vsd*
+*.tmp
+#Node modules directory
+*.orig
+#Windows CLI commands
+*.cmd
+#Generated files
+#Node npm lock files
+#Application public specification files
+#Locally stored logs
+# EOF
