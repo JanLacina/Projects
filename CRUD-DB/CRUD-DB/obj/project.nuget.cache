@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "y2igdVQqqUX4WK8gnUaKJ4YSktOC44Rdu7UDpsiAYGJUnHsf3J9caIavrzbWeeLPAzrzG5e3M9XKi48ZjwpntA==",
+  "dgSpecHash": "7ibzcIkSsuJyf4J4NXl9M6fxo0C6VUo/BVu6gIzfMbISwKD/pe2rvCpM7ljMwk/jd5spSHrp/N7aiK7/ZkVOug==",
   "success": true,
-  "projectFilePath": "E:\\Programovani\\CRUD-DB\\CRUD-DB\\CRUD-DB.csproj",
+  "projectFilePath": "E:\\Projects\\CRUD-DB\\CRUD-DB\\CRUD-DB.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
