@@ -1,12 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Reflection.Metadata;
 using WebScrapper.Entities;
 
 namespace WebScrapper.Data
 {
     public partial class CarDbContext : DbContext, IDisposable
     {
-        private readonly string _connectionString = "Server=DESKTOP-CMTJ5T0;Database=CarDatabase;Trusted_Connection=True;TrustServerCertificate=true;Integrated Security=true";
+        private readonly string _connectionString = "Server=CZ-L-7432572;Database=CarDatabase;Trusted_Connection=True;TrustServerCertificate=true;Integrated Security=true";
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {

@@ -1,7 +1,5 @@
 ﻿using HtmlAgilityPack;
 using Microsoft.Extensions.Logging;
-using System.Linq;
-using WebScrapper.Data;
 using WebScrapper.Entities;
 using WebScrapper.Repository;
 
@@ -12,11 +10,10 @@ namespace WebScrapper.Service
         public readonly CarRepository repository;
         private readonly ILogger<CarRepository> logger;
 
-        public CarService()
+        public CarService(ILogger<CarRepository> logger)
         {
-            //this.repository = repository;
-            //this.logger = logger;
-            repository = new CarRepository();
+            repository = new CarRepository(logger);
+            this.logger = logger;
         }
 
         /// <summary>
@@ -29,6 +26,7 @@ namespace WebScrapper.Service
         {
             try
             {
+                logger.LogInformation("Scrapping started");
                 var web = new HtmlWeb();
                 IList<Car> carList = new List<Car>();
 
@@ -127,6 +125,7 @@ namespace WebScrapper.Service
                     }
                 }
 
+                logger.LogInformation("Scrapping done");
                 return carList;
             }
             catch (Exception ex)
@@ -153,7 +152,7 @@ namespace WebScrapper.Service
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"{DateTime.UtcNow} - Was not possible to save to database.", ex.ToString());
+                logger.LogError($"{DateTime.UtcNow} - Was not possible to save to database.", ex.ToString());
                 return false;
             }
         }
@@ -167,7 +166,7 @@ namespace WebScrapper.Service
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"{DateTime.UtcNow} - Was not possible to save to database.", ex.ToString());
+                logger.LogError($"{DateTime.UtcNow} - Was not possible to save to database.", ex.ToString());
                 return null;
             }
         }
@@ -181,7 +180,7 @@ namespace WebScrapper.Service
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"{DateTime.UtcNow} - Was not possible to save to database.", ex.ToString());
+                logger.LogError($"{DateTime.UtcNow} - Was not possible to save to database.", ex.ToString());
                 return null;
             }
         }

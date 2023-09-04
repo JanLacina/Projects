@@ -48,3 +48,5 @@ Backup of *.doc*
 #Locally stored logs
 # EOF
 .vs
+obj
+bin

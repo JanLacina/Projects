@@ -9,9 +9,9 @@ namespace WebScrapper.Repository
         private readonly CarDbContext context;
         private readonly ILogger<CarRepository> logger;
 
-        public CarRepository(CarDbContext context, ILogger<CarRepository> logger)
+        public CarRepository(ILogger<CarRepository> logger)
         {
-            this.context = context;
+            context = new CarDbContext();
             this.logger = logger;
         }
 
@@ -19,6 +19,7 @@ namespace WebScrapper.Repository
         {
             try
             {
+                context.Database.EnsureCreated();
                 context.AddRange(collectionToSave);
                 context.SaveChanges();
 
