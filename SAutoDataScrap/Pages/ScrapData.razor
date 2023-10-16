@@ -18,6 +18,7 @@
     <Column TableItem="Car" Title="Body" Field="@(x => x.Specification.SingleOrDefault(x=>x.Name.Equals(CarConstants.Body)).Value)" Sortable="true" Filterable="true"></Column>
     <Column TableItem="Car" Title="Color" Field="@(x => x.Specification.SingleOrDefault(x=>x.Name.Equals(CarConstants.Color)).Value)" Filterable="true"></Column>
     <Column TableItem="Car" Title="Scrap Date" Field="@(x => x.ScrapDate)" Sortable="true" Filterable="true" Width="10%" DefaultSortColumn="true"></Column>
+    <Column TableItem="Car" Title="VIN" Field="@(x => x.Specification.SingleOrDefault(x=>x.Name.Equals(CarConstants.VIN)).Value)" Filterable="true"></Column>
     <Column TableItem="Car" Title="Link" Field="@(x => x.LinkToDetail)"></Column>
 
     <Pager ShowPageNumber="true" ShowTotalCount="true" ShowPageSizes="true" />
